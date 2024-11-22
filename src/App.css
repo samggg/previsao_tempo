@@ -1,38 +1,145 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'sans-serif';
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Box {
+    text-align: center;
+    margin-top: 10px;
+    position: relative;
+    max-width: 800px;
+    height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Box:hover {
+    transform: translateY(-5px);
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body{
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5), 
+        rgba(0, 0, 0, 0.5)
+    ), url('bg.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-.App-link {
-  color: #61dafb;
+.titulo {
+    font-size: 20px;
+    margin-top: 10px;
+    padding: 10px;
+    color: #10127b;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    font-weight: bold; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-controle {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid rgb(16, 18, 123);
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.search-icon {
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.group {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+}
+
+.input {
+    width: 100rem;
+    height: 40px;
+    line-height: 28px;
+    padding: 0 1rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f3f3f4;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 10rem;
+}
+
+.input::placeholder {
+    color: #9e9ea7;
+}
+
+.icon {
+    position: absolute;
+    right: 1rem;
+    fill: #9e9ea7;
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+    transition: fill 0.3s ease;
+    margin-top: 10rem;
+}
+
+.icon:hover, .icon:focus {
+    fill: rgb(99, 99, 99); 
+    outline: none; 
+}
+
+.locations{
+    margin-top: 2rem;
+    font-size: 2.2rem;
+}
+
+.weather-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+  
+.weather-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.temperature{
+    color: rgb(224, 161, 16);
+}
+
+.hours{
+    margin: auto;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    background-color: rgba(161, 158, 158, 0.2);
+    width: 6rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.6rem;
 }
