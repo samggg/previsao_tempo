@@ -2,42 +2,47 @@ import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  // Estado para armazenar o nome da cidade
   const [cidade, setCidade] = useState("");
-  // Estado para armazenar os dados da previsão do tempo
   const [previsao, setPrevisao] = useState(null);
-  // Estado para mensagens de erro
   const [erro, setErro] = useState("");
+  const [carregando, setCarregando] = useState(false);
 
-  // Função para lidar com a mudança no input
   const handleChange = (event) => {
     setCidade(event.target.value);
-    setErro(""); // Limpa mensagem de erro ao digitar
+    setErro("");
   };
 
-  // Função para lidar com a pesquisa do tempo
   const handleSearch = async () => {
     if (!cidade.trim()) {
       setErro("Por favor, insira o nome de uma cidade.");
       return;
     }
 
+    setCarregando(true);
+
     try {
       const url = `https://api.weatherapi.com/v1/current.json?key=49f1834cf8264440ad122012240601&q=${cidade}&lang=pt`;
       const response = await fetch(url);
+
       if (response.ok) {
         const data = await response.json();
-        setPrevisao(data);
-        setErro(""); // Limpa mensagem de erro ao obter resultado
+        if (data.error) {
+          setErro("Cidade não encontrada ou inválida.");
+        } else {
+          setPrevisao(data);
+          setErro("");
+        }
       } else {
-        setErro("Erro ao buscar os dados. Verifique o nome da cidade.");
+        setErro("Erro ao buscar os dados");
       }
     } catch (error) {
-      setErro("Erro na chamada à API. Tente novamente mais tarde.");
+      setErro("Erro na chamada à API");
+      console.log(error);
+    } finally {
+      setCarregando(false);
     }
   };
 
-  // Disparar busca ao pressionar Enter
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       handleSearch();
@@ -68,6 +73,7 @@ function App() {
                 </g>
               </svg>
             </div>
+            {carregando && <p>Carregando...</p>}
             {erro && <p className="erro">{erro}</p>}
           </div>
           {previsao ? (

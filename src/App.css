@@ -143,3 +143,28 @@ body{
     justify-content: center;
     border-radius: 0.6rem;
 }
+
+@media (max-width: 768px) {
+    .input {
+        width: 16rem;
+    }
+    .Box {
+        max-width: 90%;
+    }
+
+    .mt-5{
+        width: 15.7rem;
+    }
+
+    .temperature{
+        font-size: 0.7rem;
+    }
+
+    .locations{
+        font-size: 0.7rem;
+    }
+
+    .hours{
+        font-size: 1.3rem;
+    }
+}
