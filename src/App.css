@@ -152,19 +152,31 @@ body{
         max-width: 90%;
     }
 
-    .mt-5{
+    .mt-5 {
         width: 15.7rem;
     }
 
-    .temperature{
+    .temperature {
         font-size: 0.7rem;
     }
 
-    .locations{
+    .locations {
         font-size: 0.7rem;
     }
 
-    .hours{
+    .hours {
         font-size: 1.3rem;
     }
+
+    body {
+        overflow: hidden;
+    }
+
+    .group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
 }
+
